@@ -56,12 +56,10 @@ export default function App() {
               <Button
                 btn="DELETE"
                 click={() => {
-                  console.log("clicked delete");
-                  {
-                    task.filter((value, idx) => {
-                      return value.index !== idx;
-                    });
-                  }
+                  const updatedArr = task?.filter((value, idx) => {
+                    return value.index !== idx;
+                  });
+                  setTask(updatedArr);
                 }}
               />
             </div>

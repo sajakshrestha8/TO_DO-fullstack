@@ -1,0 +1,38 @@
+.input-wrapper{
+    align-items:center;
+    justify-content: center;
+}
+
+.add-input{
+    display: grid;
+    grid-template-columns: 1fr 0.2fr;
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
+
+.task{
+    padding: 8px;
+}
+
+.checkbox{
+    height: 20px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.checkbox:hover{
+    background-color: red;
+}
+
+.task-wrapper{
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 0.1fr 0.1fr;
+    column-gap: 5px;
+    margin-left: 20rem;
+    margin-right: 20rem;
+    margin-top: 5px;
+}
+
+.checkbox-wrapper{
+    align-items: center;
+}

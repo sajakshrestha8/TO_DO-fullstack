@@ -6,8 +6,8 @@
 .add-input{
     display: grid;
     grid-template-columns: 1fr 0.2fr;
-    margin-left: 20rem;
-    margin-right: 20rem;
+    /* margin-left: 20rem;
+    margin-right: 20rem; */
 }
 
 .task{
@@ -28,11 +28,27 @@
     display: grid;
     grid-template-columns: 0.1fr 1fr 0.1fr 0.1fr;
     column-gap: 5px;
-    margin-left: 20rem;
-    margin-right: 20rem;
+    /* margin-left: 20rem;
+    margin-right: 20rem; */
     margin-top: 5px;
 }
 
 .checkbox-wrapper{
     align-items: center;
 }
+
+.heading{
+    text-align: center;
+}
+
+.to-do-wrapper{
+    margin-top: 11rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
+    background-color: rgb(246, 246, 246);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 8px;
+}
+

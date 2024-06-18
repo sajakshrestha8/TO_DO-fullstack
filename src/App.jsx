@@ -5,19 +5,19 @@ import Input from "./Components/Inputfield";
 import "./CSS/index.css";
 
 export default function App() {
+  const [typing, setTyping] = useState("");
+  const [task, setTask] = useState([]);
+  const url = "http://localhost:8000/";
+
   useEffect(() => {
-    fetch("http://localhost:8001/")
+    fetch(url)
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        // console.log(data);
         setTask(data);
       });
   }, []);
-
-  const [typing, setTyping] = useState("");
-  const [task, setTask] = useState([]);
 
   const enteredTask = (e) => {
     const typedData = e.target.value;
@@ -33,7 +33,7 @@ export default function App() {
     ];
     setTask(addedData);
 
-    fetch("http://localhost:8001/", {
+    fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,6 +46,11 @@ export default function App() {
       .then((data) => {
         console.log(data);
       });
+  };
+
+  const updateTask = () => {
+    const findingIndex = task.findIndex(task);
+    console.log(findingIndex);
   };
 
   return (
@@ -72,14 +77,27 @@ export default function App() {
                 <label className="task">{value.task}</label>
               </div>
               <div>
-                <Button btn="UPDATE" />
+                <Button btn="UPDATE" click={updateTask} />
               </div>
               <div>
                 <Button
                   btn="DELETE"
                   click={() => {
                     const updatedArr = task?.filter((value, idx) => {
-                      return value.index !== idx;
+                      const deletedData = index !== idx;
+                      fetch(url, {
+                        method: "DELETE",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(deletedData),
+                      })
+                        .then((res) => {
+                          return res.json();
+                        })
+                        .then((data) => {
+                          setTask(data);
+                        });
                     });
                     setTask(updatedArr);
                   }}
